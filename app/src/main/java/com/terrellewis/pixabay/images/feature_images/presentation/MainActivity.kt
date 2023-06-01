@@ -1,4 +1,4 @@
-package com.terrellewis.pixabay.images
+package com.terrellewis.pixabay.images.feature_images.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
