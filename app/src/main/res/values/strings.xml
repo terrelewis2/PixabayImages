@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PixabayImages</string>
+    <string name="confirm_action">Confirm Action</string>
+    <string name="proceed_view_image_detail">Do you want to proceed to view the image?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

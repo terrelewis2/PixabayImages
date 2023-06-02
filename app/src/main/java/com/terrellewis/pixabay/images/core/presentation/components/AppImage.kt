@@ -16,6 +16,7 @@ fun AppImage(
     imageUrl: String,
     contentDescription: String?,
     modifier: Modifier = Modifier,
+    contentScale: ContentScale = ContentScale.Crop,
     transformation: Transformation? = null,
 ) {
     val imageRequest = if (transformation != null) {
@@ -43,6 +44,6 @@ fun AppImage(
         loading = {
             CircularProgressIndicator()
         },
-        contentScale = ContentScale.Crop
+        contentScale = contentScale
     )
 }

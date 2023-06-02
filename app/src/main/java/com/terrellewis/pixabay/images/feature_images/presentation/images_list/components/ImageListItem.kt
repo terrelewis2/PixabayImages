@@ -55,7 +55,9 @@ fun ImageListItem(
                     contentDescription = null,
                     modifier = Modifier.roundedCornerShape(
                         topStart = 5.dp,
-                        topEnd = 5.dp
+                        topEnd = 5.dp,
+                        bottomStart = 0.dp,
+                        bottomEnd = 0.dp
                     )
                 )
             }

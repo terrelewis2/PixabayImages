@@ -17,9 +17,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.terrellewis.pixabay.images.R
 import com.terrellewis.pixabay.images.core.presentation.components.AppAlertDialog
 import com.terrellewis.pixabay.images.core.presentation.components.AppText
 import com.terrellewis.pixabay.images.core.util.defaultPadding
@@ -28,6 +30,7 @@ import com.terrellewis.pixabay.images.feature_images.domain.model.Image
 import com.terrellewis.pixabay.images.feature_images.presentation.images_list.components.ImageListItem
 import com.terrellewis.pixabay.images.feature_images.presentation.images_list.components.ImagesSearchBar
 import com.terrellewis.pixabay.images.feature_images.presentation.images_list.viewmodel.ImagesListViewModel
+import com.terrellewis.pixabay.images.navigation.Screen
 
 @Composable
 fun ImagesListScreen(
@@ -49,12 +52,17 @@ fun ImagesListScreen(
             onDismissRequest = {
                 dialogState.value = false
             },
-            title = "Confirm Action",
-            text = "Do you want to proceed to view the image?",
-            confirmText = "Yes",
-            dismissText = "No",
+            title = stringResource(R.string.confirm_action),
+            text = stringResource(R.string.proceed_view_image_detail),
+            confirmText = stringResource(R.string.yes),
+            dismissText = stringResource(R.string.no),
             onConfirmClicked = {
                 dialogState.value = false
+                selectedItem.value?.let { item ->
+                    navController.navigate(
+                        Screen.ImageDetailScreen.route + "/${item.id}"
+                    )
+                }
             },
             onDismissClicked = {
                 dialogState.value = false

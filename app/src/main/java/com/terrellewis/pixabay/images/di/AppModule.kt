@@ -8,6 +8,7 @@ import com.terrellewis.pixabay.images.feature_images.data.local.dao.ImageDao
 import com.terrellewis.pixabay.images.feature_images.data.remote.api.ImagesApi
 import com.terrellewis.pixabay.images.feature_images.data.repository.ImageRepositoryImpl
 import com.terrellewis.pixabay.images.feature_images.domain.repository.ImageRepository
+import com.terrellewis.pixabay.images.feature_images.domain.use_case.GetImageByIdUseCase
 import com.terrellewis.pixabay.images.feature_images.domain.use_case.GetImagesUseCase
 import dagger.Module
 import dagger.Provides
@@ -63,4 +64,10 @@ class AppModule {
     fun provideGetImagesUseCase(
         repository: ImageRepository,
     ) = GetImagesUseCase(repository)
+
+    @Provides
+    @Singleton
+    fun provideGetImageByIdUseCase(
+        repository: ImageRepository,
+    ) = GetImageByIdUseCase(repository)
 }
