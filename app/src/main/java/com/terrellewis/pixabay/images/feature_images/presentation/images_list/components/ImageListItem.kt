@@ -71,7 +71,8 @@ fun ImageListItem(
                 AppText(
                     text = image.username,
                     style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Bold,
+                    color = MaterialTheme.colorScheme.primary
                 )
 
                 Spacer(modifier = Modifier.defaultSpacerHeight())

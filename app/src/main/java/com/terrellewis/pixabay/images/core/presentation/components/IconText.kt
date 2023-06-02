@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import com.terrellewis.pixabay.images.R
 import com.terrellewis.pixabay.images.core.util.defaultSpacerWidth
 
@@ -16,8 +17,8 @@ fun IconText(
     modifier: Modifier,
     icon: Int,
     contentDescription: String,
-    iconTint: Color = MaterialTheme.colorScheme.primary
-
+    iconTint: Color = MaterialTheme.colorScheme.primary,
+    textColor: Color = MaterialTheme.colorScheme.primary
 ) {
 
     Icon(
@@ -31,10 +32,7 @@ fun IconText(
     AppText(
         modifier = modifier,
         text = text,
-        color = Color.Gray
+        color = textColor,
+        fontWeight = FontWeight.Bold
     )
-
-
-
-
 }
