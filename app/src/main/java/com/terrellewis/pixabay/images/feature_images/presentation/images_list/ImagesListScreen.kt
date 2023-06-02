@@ -20,6 +20,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.terrellewis.pixabay.images.core.presentation.components.AppAlertDialog
 import com.terrellewis.pixabay.images.core.presentation.components.AppText
 import com.terrellewis.pixabay.images.core.util.defaultPadding
 import com.terrellewis.pixabay.images.core.util.defaultSpacerHeight
@@ -44,7 +45,21 @@ fun ImagesListScreen(
     }
 
     if (dialogState.value) {
-        TODO("Show Dialog confirming if user wants to see details of the image")
+        AppAlertDialog(
+            onDismissRequest = {
+                dialogState.value = false
+            },
+            title = "Confirm Action",
+            text = "Do you want to proceed to view the image?",
+            confirmText = "Yes",
+            dismissText = "No",
+            onConfirmClicked = {
+                dialogState.value = false
+            },
+            onDismissClicked = {
+                dialogState.value = false
+            }
+        )
     }
 
     Column(
