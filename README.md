@@ -40,6 +40,8 @@ PIXABAY_API_KEY=YOUR_API_KEY
 - Clean Architecture implementing two primary use cases: SearchImages and GetImageDetails
 - UI built using Jetpack Compose and follows Material Design guidelines
 
+# APK
+Download the [APK](https://drive.google.com/file/d/1TRaVl7piQP9zMZRms5xxd_oZeER7BtGv/view)
 
 # TODOs:
 - Add tests
