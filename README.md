@@ -7,6 +7,7 @@ PixabayImages is an Android app that allows users to search and view royalty fre
 - View image details which includes likes, comments and downloads
 - Searched images are cached in the database and can be viewed offline as well
 - Dark theme support
+- Portrait and landscape orientation support
 
 # Screens
 <table>
@@ -41,12 +42,10 @@ PIXABAY_API_KEY=YOUR_API_KEY
 - UI built using Jetpack Compose and follows Material Design guidelines
 
 # APK
-Download the [APK](https://drive.google.com/file/d/1TRaVl7piQP9zMZRms5xxd_oZeER7BtGv/view)
-
-# TODOs:
-- Add tests
+Download the [APK](https://drive.google.com/file/d/1upHR-wVmmB6H3dQfx7-71AzYLUfMv6oD/view?usp=sharing)
 
 # Potential Improvements:
 - Add pagination to the image list
 - Add a favorites feature
 - Add a download feature
+- Improve scope of testing
