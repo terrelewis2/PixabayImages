@@ -48,7 +48,14 @@ android {
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += '/META-INF/*'
+        }
+    }
+    testOptions {
+        packagingOptions {
+            jniLibs {
+                useLegacyPackaging = true
+            }
         }
     }
 }
@@ -104,4 +111,8 @@ dependencies {
 
     // accompanist
     implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
+
+    // mockk
+    testImplementation "io.mockk:mockk-android:1.12.3"
+    androidTestImplementation "io.mockk:mockk-android:1.12.3"
 }
