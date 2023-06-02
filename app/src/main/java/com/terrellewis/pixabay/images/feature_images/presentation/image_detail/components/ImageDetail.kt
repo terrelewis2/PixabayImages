@@ -14,29 +14,26 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.flowlayout.FlowRow
-import com.terrellewis.pixabay.images.R
 import com.terrellewis.pixabay.images.core.presentation.components.AppImage
 import com.terrellewis.pixabay.images.core.presentation.components.AppTag
 import com.terrellewis.pixabay.images.core.presentation.components.AppText
-import com.terrellewis.pixabay.images.core.presentation.components.IconText
 import com.terrellewis.pixabay.images.core.util.defaultPadding
 import com.terrellewis.pixabay.images.core.util.defaultSpacerHeight
-import com.terrellewis.pixabay.images.core.util.defaultSpacerWidth
 import com.terrellewis.pixabay.images.feature_images.domain.model.Image
 
 @Composable
 fun ImageDetail(
     image: Image
 ) {
-    val pixelSize = with(LocalDensity.current) {
-        50.dp.toPx().toInt()
-    }
 
     Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -53,6 +50,7 @@ fun ImageDetail(
                 AppImage(
                     imageUrl = image.largeImageUrl,
                     contentDescription = null,
+                    contentScale = ContentScale.Fit
                 )
             }
         }
@@ -123,38 +121,11 @@ fun ImageDetail(
 
                 Spacer(modifier = Modifier.defaultSpacerHeight())
 
-                Row(
-                    modifier = Modifier
-                        .defaultPadding(),
-                    verticalAlignment = Alignment.CenterVertically
-                ) {
-
-                    IconText(
-                        text = image.likesCount.toString(),
-                        modifier = Modifier.weight(1f),
-                        icon = R.drawable.ic_like,
-                        contentDescription = "Likes"
-                    )
-
-                    Spacer(modifier = Modifier.defaultSpacerWidth())
-
-                    IconText(
-                        text = image.commentsCount.toString(),
-                        modifier = Modifier.weight(1f),
-                        icon = R.drawable.ic_comment,
-                        contentDescription = "Comments"
-                    )
-
-
-                    Spacer(modifier = Modifier.defaultSpacerWidth())
-
-                    IconText(
-                        text = image.downloadsCount.toString(),
-                        modifier = Modifier.weight(1f),
-                        icon = R.drawable.ic_download,
-                        contentDescription = "Downloads"
-                    )
-                }
+                ImageStats(
+                    image.likesCount,
+                    image.commentsCount,
+                    image.downloadsCount
+                )
             }
         }
     }
