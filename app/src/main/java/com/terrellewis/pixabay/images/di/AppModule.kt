@@ -6,6 +6,9 @@ import com.terrellewis.pixabay.images.core.db.ImagesDatabase
 import com.terrellewis.pixabay.images.core.util.Constants.BASE_URL
 import com.terrellewis.pixabay.images.feature_images.data.local.dao.ImageDao
 import com.terrellewis.pixabay.images.feature_images.data.remote.api.ImagesApi
+import com.terrellewis.pixabay.images.feature_images.data.repository.ImageRepositoryImpl
+import com.terrellewis.pixabay.images.feature_images.domain.repository.ImageRepository
+import com.terrellewis.pixabay.images.feature_images.domain.use_case.GetImagesUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +24,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideGalleryDatabase(
+    fun provideImagesDatabase(
         @ApplicationContext applicationContext: Context,
     ) = Room.databaseBuilder(
         applicationContext,
@@ -42,4 +45,22 @@ class AppModule {
     fun provideImageDao(database: ImagesDatabase): ImageDao {
         return database.imageDao()
     }
+
+    @Provides
+    @Singleton
+    fun provideImageRepository(
+        imageDao: ImageDao,
+        imagesApi: ImagesApi
+    ): ImageRepository {
+        return ImageRepositoryImpl(
+            imageDao = imageDao,
+            imagesApi = imagesApi
+        )
+    }
+
+    @Provides
+    @Singleton
+    fun provideGetImagesUseCase(
+        repository: ImageRepository,
+    ) = GetImagesUseCase(repository)
 }

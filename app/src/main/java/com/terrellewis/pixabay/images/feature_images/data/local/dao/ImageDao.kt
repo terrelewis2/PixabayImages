@@ -8,7 +8,7 @@ import com.terrellewis.pixabay.images.feature_images.data.local.dto.LocalImageDT
 @Dao
 interface ImageDao {
     @Upsert
-    suspend fun insertImages(galleryImageEntities: List<LocalImageDTO>)
+    suspend fun insertImages(images: List<LocalImageDTO>)
 
     @Query("SELECT * FROM images WHERE id = :id")
     suspend fun getImageById(id: Int): LocalImageDTO

@@ -99,6 +99,9 @@ dependencies {
     // coil
     implementation "io.coil-kt:coil-compose:2.2.2"
 
-    //timber
+    // timber
     implementation 'com.jakewharton.timber:timber:5.0.1'
+
+    // accompanist
+    implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
 }
