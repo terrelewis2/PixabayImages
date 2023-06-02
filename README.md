@@ -1,7 +1,6 @@
 # PixabayImages - A Pixabay client app for Android
 
-PixabayImages is an Android app that allows users to search and view royalty free stock images. The images are fetched using the [Pixabay API](https://pixabay.com/).
-It is written in Kotlin, uses Jetpack Compose, and follows Clean Architecture principles.
+PixabayImages is an Android app that allows users to search and view royalty free stock images. The images are fetched using the [Pixabay API](https://pixabay.com/). It is written in Kotlin, uses Jetpack Compose, and follows Clean Architecture principles.
 
 # Key features:
 - Search for images using keywords
@@ -40,3 +39,12 @@ PIXABAY_API_KEY=YOUR_API_KEY
 - Runs on Android 7.0 and higher
 - Clean Architecture implementing two primary use cases: SearchImages and GetImageDetails
 - UI built using Jetpack Compose and follows Material Design guidelines
+
+
+# TODOs:
+- Add tests
+
+# Potential Improvements:
+- Add pagination to the image list
+- Add a favorites feature
+- Add a download feature
