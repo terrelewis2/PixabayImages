@@ -2,7 +2,7 @@ package com.terrellewis.pixabay.images.feature_images.data.remote.dto
 
 import com.squareup.moshi.Json
 
-data class RemoteImageDTO(
+data class ImageDTO(
     val id: Int,
     @field:Json(name = "previewURL")
     val previewUrl: String?,

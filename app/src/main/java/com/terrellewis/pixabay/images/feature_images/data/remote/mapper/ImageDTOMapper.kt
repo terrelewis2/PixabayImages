@@ -1,11 +1,11 @@
 package com.terrellewis.pixabay.images.feature_images.data.remote.mapper
 
 import com.terrellewis.pixabay.images.core.util.getAsList
-import com.terrellewis.pixabay.images.feature_images.data.remote.dto.RemoteImageDTO
-import com.terrellewis.pixabay.images.feature_images.data.remote.dto.RemoteImagesDTO
+import com.terrellewis.pixabay.images.feature_images.data.remote.dto.ImageDTO
+import com.terrellewis.pixabay.images.feature_images.data.remote.dto.ImagesDTO
 import com.terrellewis.pixabay.images.feature_images.domain.model.Image
 
-fun RemoteImageDTO.toImage(): Image {
+fun ImageDTO.toImage(): Image {
     return Image(
         id = id,
         previewUrl = previewUrl ?: "",
@@ -19,12 +19,12 @@ fun RemoteImageDTO.toImage(): Image {
     )
 }
 
-fun RemoteImagesDTO.toImages(): List<Image> {
+fun ImagesDTO.toImages(): List<Image> {
     return photos.map { it.toImage() }
 }
 
-fun Image.toRemoteImage(): RemoteImageDTO {
-    return RemoteImageDTO(
+fun Image.toImageDTO(): ImageDTO {
+    return ImageDTO(
         id = id,
         previewUrl = previewUrl,
         largeImageUrl = largeImageUrl,

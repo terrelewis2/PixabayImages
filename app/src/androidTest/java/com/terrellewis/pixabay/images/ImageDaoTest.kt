@@ -6,8 +6,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.terrellewis.pixabay.images.core.db.ImagesDatabase
 import com.terrellewis.pixabay.images.feature_images.data.local.dao.ImageDao
-import com.terrellewis.pixabay.images.feature_images.data.local.dto.LocalImageDTO
-import io.mockk.mockk
+import com.terrellewis.pixabay.images.feature_images.data.local.entities.ImageEntity
 import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
@@ -36,7 +35,7 @@ class ImageDaoTest {
 
     @Test
     fun testInsertAndGetImages() = runBlocking {
-        val image = LocalImageDTO(
+        val image = ImageEntity(
             1,
             "url",
             "largeUrl",
@@ -55,7 +54,7 @@ class ImageDaoTest {
 
     @Test
     fun testGetImageById() = runBlocking {
-        val image = LocalImageDTO(
+        val image = ImageEntity(
             1,
             "url",
             "largeUrl",

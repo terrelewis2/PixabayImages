@@ -4,7 +4,7 @@ import com.terrellewis.pixabay.images.core.util.NetworkConnection
 import com.terrellewis.pixabay.images.core.util.Resource
 import com.terrellewis.pixabay.images.feature_images.data.local.dao.ImageDao
 import com.terrellewis.pixabay.images.feature_images.data.local.mapper.toImage
-import com.terrellewis.pixabay.images.feature_images.data.local.mapper.toLocalImage
+import com.terrellewis.pixabay.images.feature_images.data.local.mapper.toImageEntity
 import com.terrellewis.pixabay.images.feature_images.data.remote.api.ImagesApi
 import com.terrellewis.pixabay.images.feature_images.data.remote.mapper.toImages
 import com.terrellewis.pixabay.images.feature_images.domain.model.Image
@@ -23,7 +23,7 @@ class ImageRepositoryImpl @Inject constructor(
             if(NetworkConnection.isConnected()) {
                 val images = imagesApi.getImages(query).toImages()
                 val localImages = images.map {
-                    it.toLocalImage()
+                    it.toImageEntity()
                 }
                 imageDao.insertImages(localImages)
                 Timber.d("Images fetched from API successfully: $images")

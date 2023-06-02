@@ -1,11 +1,11 @@
 package com.terrellewis.pixabay.images.feature_images.data.local.mapper
 
 import com.terrellewis.pixabay.images.core.util.getAsList
-import com.terrellewis.pixabay.images.feature_images.data.local.dto.LocalImageDTO
+import com.terrellewis.pixabay.images.feature_images.data.local.entities.ImageEntity
 import com.terrellewis.pixabay.images.feature_images.domain.model.Image
 
 
-fun LocalImageDTO.toImage(): Image {
+fun ImageEntity.toImage(): Image {
     return Image(
         id = id,
         previewUrl = previewUrl,
@@ -19,8 +19,8 @@ fun LocalImageDTO.toImage(): Image {
     )
 }
 
-fun Image.toLocalImage(): LocalImageDTO {
-    return LocalImageDTO(
+fun Image.toImageEntity(): ImageEntity {
+    return ImageEntity(
         id = id,
         previewUrl = previewUrl,
         largeImageUrl = largeImageUrl,

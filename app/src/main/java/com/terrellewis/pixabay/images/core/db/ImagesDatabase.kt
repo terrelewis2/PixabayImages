@@ -4,10 +4,10 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import com.terrellewis.pixabay.images.core.db.ImagesDatabase.Companion.DATABASE_VERSION
 import com.terrellewis.pixabay.images.feature_images.data.local.dao.ImageDao
-import com.terrellewis.pixabay.images.feature_images.data.local.dto.LocalImageDTO
+import com.terrellewis.pixabay.images.feature_images.data.local.entities.ImageEntity
 
 @Database(
-    entities = [LocalImageDTO::class],
+    entities = [ImageEntity::class],
     version = DATABASE_VERSION,
     exportSchema = true
 )

@@ -1,9 +1,9 @@
-package com.terrellewis.pixabay.images.feature_images.data.local.dto
+package com.terrellewis.pixabay.images.feature_images.data.local.entities
 
 import androidx.room.Entity
 
 @Entity(tableName = "images", primaryKeys = [("id")])
-data class LocalImageDTO(
+data class ImageEntity(
     val id: Int,
     val previewUrl: String,
     val largeImageUrl: String,
