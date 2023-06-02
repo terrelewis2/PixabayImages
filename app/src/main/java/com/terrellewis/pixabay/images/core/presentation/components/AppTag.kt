@@ -11,7 +11,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.terrellewis.pixabay.images.core.util.defaultPadding
 
 @Composable
 fun AppTag(
@@ -27,7 +26,7 @@ fun AppTag(
             .padding(6.dp)
     ) {
         Text(
-            text = tag,
+            text = "#$tag",
             color = MaterialTheme.colorScheme.primary,
             fontSize = 10.sp,
             textAlign = TextAlign.Center,
