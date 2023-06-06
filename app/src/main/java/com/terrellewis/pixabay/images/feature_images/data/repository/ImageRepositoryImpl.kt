@@ -17,11 +17,11 @@ import javax.inject.Inject
 class ImageRepositoryImpl @Inject constructor(
     private val imageDao: ImageDao,
     private val imagesApi: ImagesApi
-): ImageRepository {
+) : ImageRepository {
     override suspend fun getImages(query: String): Resource<List<Image>> {
         return try {
-            if(NetworkConnection.isConnected()) {
-                val images = imagesApi.getImages(query).toImages()
+            if (NetworkConnection.isConnected()) {
+                val images = imagesApi.getImages(query).toImages(query)
                 val localImages = images.map {
                     it.toImageEntity()
                 }
@@ -33,9 +33,9 @@ class ImageRepositoryImpl @Inject constructor(
                     .map {
                         it.toImage()
                     }.filter {
-                        it.tags.contains(query)
+                        it.query.equals(query, ignoreCase = true)
                     }
-                if(images.isEmpty()) {
+                if (images.isEmpty()) {
                     Timber.d("No images found in db for query")
                     Resource.Error("No internet connection")
                 } else {

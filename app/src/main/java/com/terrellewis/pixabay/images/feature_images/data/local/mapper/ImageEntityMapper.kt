@@ -16,6 +16,8 @@ fun ImageEntity.toImage(): Image {
         likesCount = likesCount,
         downloadsCount = downloadsCount,
         commentsCount = commentsCount,
+        query = query
+
     )
 }
 
@@ -30,6 +32,7 @@ fun Image.toImageEntity(): ImageEntity {
         likesCount = likesCount,
         downloadsCount = downloadsCount,
         commentsCount = commentsCount,
+        query = query
     )
 
 }

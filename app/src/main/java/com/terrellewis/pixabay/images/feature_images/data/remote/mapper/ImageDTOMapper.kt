@@ -5,7 +5,7 @@ import com.terrellewis.pixabay.images.feature_images.data.remote.dto.ImageDTO
 import com.terrellewis.pixabay.images.feature_images.data.remote.dto.ImagesDTO
 import com.terrellewis.pixabay.images.feature_images.domain.model.Image
 
-fun ImageDTO.toImage(): Image {
+fun ImageDTO.toImage(query: String): Image {
     return Image(
         id = id,
         previewUrl = previewUrl ?: "",
@@ -16,11 +16,12 @@ fun ImageDTO.toImage(): Image {
         likesCount = likesCount ?: 0,
         downloadsCount = downloadsCount ?: 0,
         commentsCount = commentsCount ?: 0,
+        query = query
     )
 }
 
-fun ImagesDTO.toImages(): List<Image> {
-    return photos.map { it.toImage() }
+fun ImagesDTO.toImages(query: String): List<Image> {
+    return photos.map { it.toImage(query) }
 }
 
 fun Image.toImageDTO(): ImageDTO {

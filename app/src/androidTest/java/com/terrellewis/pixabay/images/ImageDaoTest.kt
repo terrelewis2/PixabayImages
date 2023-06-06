@@ -44,7 +44,8 @@ class ImageDaoTest {
             "user",
             0,
             0,
-            0
+            0,
+            "search"
         )
         val images = listOf(image)
         imageDao.insertImages(images)
@@ -63,7 +64,8 @@ class ImageDaoTest {
             "user",
             0,
             0,
-            0
+            0,
+            "search"
         )
         imageDao.insertImages(listOf(image))
         val retrievedImage = imageDao.getImageById(1)

@@ -10,4 +10,5 @@ data class Image(
     val likesCount: Int,
     val downloadsCount: Int,
     val commentsCount: Int,
+    val query: String,
 )
